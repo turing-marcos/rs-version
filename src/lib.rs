@@ -17,8 +17,8 @@ pub struct Version {
 
 impl Version {
     pub fn get() -> Option<Self> {
-        match option_env!("CARGO_PKG_VERSION") {
-            Some(v) => {
+        match std::env::var("CARGO_PKG_VERSION") {
+            Ok(v) => {
                 let s: Vec<&str> = v.split(".").collect();
 
                 if s.len() < 3 {
@@ -31,7 +31,7 @@ impl Version {
                     patch: u32::from_str_radix(s[2], 9).unwrap_or(0),
                 })
             }
-            None => None,
+            _ => None,
         }
     }
 
