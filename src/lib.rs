@@ -165,7 +165,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_cmp(){
+    fn test_cmp() {
         let v = Version::from_str("1.0.0").unwrap();
         let v_g1 = Version::from_str("1.0.1").unwrap();
         let v_g2 = Version::from_str("1.1.0").unwrap();
@@ -186,9 +186,8 @@ mod tests {
         assert!(v > v_l3);
     }
 
-
     #[test]
-    fn test_eq(){
+    fn test_eq() {
         let v = Version::from_str("1.0.0").unwrap();
         let v2 = Version::from_str("1.0.0").unwrap();
 
