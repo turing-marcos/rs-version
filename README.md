@@ -1,3 +1,5 @@
+[![Rust](https://github.com/turing-marcos/rs-version/actions/workflows/rust.yml/badge.svg)](https://github.com/turing-marcos/rs-version/actions/workflows/rust.yml)
+
 # rs-version
 
 A simple rust library for managing versions of a program compiled using Cargo.
