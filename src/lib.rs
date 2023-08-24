@@ -15,26 +15,13 @@ pub struct Version {
     patch: u32,
 }
 
+/// Gets the current version as a string.
+#[macro_export]
+macro_rules! version(
+  () => ( env!( "CARGO_PKG_VERSION" ) )
+);
+
 impl Version {
-    pub fn get() -> Option<Self> {
-        match std::env::var("CARGO_PKG_VERSION") {
-            Ok(v) => {
-                let s: Vec<&str> = v.split(".").collect();
-
-                if s.len() < 3 {
-                    return None;
-                }
-
-                Some(Self {
-                    major: u32::from_str_radix(s[0], 9).unwrap_or(0),
-                    minor: u32::from_str_radix(s[1], 9).unwrap_or(0),
-                    patch: u32::from_str_radix(s[2], 9).unwrap_or(0),
-                })
-            }
-            _ => None,
-        }
-    }
-
     pub fn major(&self) -> u32 {
         self.major
     }
